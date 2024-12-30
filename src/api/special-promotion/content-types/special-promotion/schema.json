@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "special_promotions",
+  "info": {
+    "singularName": "special-promotion",
+    "pluralName": "special-promotions",
+    "displayName": "Special Promotion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "promtion_text": {
+      "type": "text"
+    },
+    "Amount": {
+      "type": "integer"
+    },
+    "Promotion_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Benefit": {
+      "type": "text"
+    }
+  }
+}
