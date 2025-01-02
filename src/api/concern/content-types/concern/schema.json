@@ -4,7 +4,8 @@
   "info": {
     "singularName": "concern",
     "pluralName": "concerns",
-    "displayName": "Concern"
+    "displayName": "Concern",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -31,6 +32,11 @@
     },
     "slug": {
       "type": "uid"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
     }
   }
 }
