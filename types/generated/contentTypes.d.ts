@@ -528,6 +528,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiServiceService extends Struct.CollectionTypeSchema {
   collectionName: 'services';
   info: {
+    description: '';
     displayName: 'Service';
     pluralName: 'services';
     singularName: 'service';
@@ -536,23 +537,24 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    category: Schema.Attribute.String;
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
+    content: Schema.Attribute.JSON;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    faqs: Schema.Attribute.JSON;
+    heading: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::service.service'
     > &
       Schema.Attribute.Private;
+    meta_description: Schema.Attribute.Text;
+    meta_title: Schema.Attribute.Text;
+    Name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    Services_data: Schema.Attribute.Text;
-    Services_image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    Services_name: Schema.Attribute.String;
+    slug: Schema.Attribute.UID;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -572,22 +574,31 @@ export interface ApiSpecialPromotionSpecialPromotion
     draftAndPublish: true;
   };
   attributes: {
-    Amount: Schema.Attribute.Integer;
-    Benefit: Schema.Attribute.Text;
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    faqs: Schema.Attribute.JSON;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::special-promotion.special-promotion'
     > &
       Schema.Attribute.Private;
-    Promotion_image: Schema.Attribute.Media<
+    meta_description: Schema.Attribute.Text;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    sectio3Image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
-    promtion_text: Schema.Attribute.Text;
-    publishedAt: Schema.Attribute.DateTime;
+    section: Schema.Attribute.JSON;
+    section1Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    section2Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    slug: Schema.Attribute.UID;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
